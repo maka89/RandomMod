@@ -27,29 +27,6 @@
     <ClCompile Include="RandomLFO.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="dspfilters\biquad.h" />
-    <ClInclude Include="dspfilters\biquad_modified.h" />
-    <ClInclude Include="dspfilters\filter_common.h" />
-    <ClInclude Include="dspfilters\filter_includes.h" />
-    <ClInclude Include="dspfilters\fo_apf.h" />
-    <ClInclude Include="dspfilters\fo_hpf.h" />
-    <ClInclude Include="dspfilters\fo_lpf.h" />
-    <ClInclude Include="dspfilters\fo_shelving_high.h" />
-    <ClInclude Include="dspfilters\fo_shelving_low.h" />
-    <ClInclude Include="dspfilters\so_apf.h" />
-    <ClInclude Include="dspfilters\so_bpf.h" />
-    <ClInclude Include="dspfilters\so_bsf.h" />
-    <ClInclude Include="dspfilters\so_butterworth_bpf.h" />
-    <ClInclude Include="dspfilters\so_butterworth_bsf.h" />
-    <ClInclude Include="dspfilters\so_butterworth_hpf.h" />
-    <ClInclude Include="dspfilters\so_butterworth_lpf.h" />
-    <ClInclude Include="dspfilters\so_hpf.h" />
-    <ClInclude Include="dspfilters\so_linkwitz_riley_hpf.h" />
-    <ClInclude Include="dspfilters\so_linkwitz_riley_lpf.h" />
-    <ClInclude Include="dspfilters\so_lpf.h" />
-    <ClInclude Include="dspfilters\so_parametric_cq_boost.h" />
-    <ClInclude Include="dspfilters\so_parametric_cq_cut.h" />
-    <ClInclude Include="dspfilters\so_parametric_ncq.h" />
     <ClInclude Include="fftconvolver\AudioFFT.h" />
     <ClInclude Include="fftconvolver\FFTConvolver.h" />
     <ClInclude Include="fftconvolver\TwoStageFFTConvolver.h" />
@@ -116,7 +93,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\akringstad\Source\Repos\RandomFunction\RandomFunction\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,7 +106,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\akringstad\Source\Repos\RandomFunction\RandomFunction\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,7 +121,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\akringstad\Source\Repos\RandomFunction\RandomFunction\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
@@ -163,7 +140,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\akringstad\Source\Repos\RandomFunction\RandomFunction\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>

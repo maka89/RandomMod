@@ -1,9 +1,11 @@
 #include "fftconvolver/FFTConvolver.h"
-#include "dspfilters/so_butterworth_lpf.h"
+#include <dspfilters/so_butterworth_lpf.h>
 #include <boost/circular_buffer.hpp>
+
 #include <random>
-using namespace fftconvolver;
 using namespace std;
+using namespace fftconvolver;
+
 class RandomLFO {
 public:
 	RandomLFO();

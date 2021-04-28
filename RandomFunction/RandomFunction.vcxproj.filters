@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\dspfilters">
-      <UniqueIdentifier>{795a8f3a-b48b-48c9-8ab7-d554a1bb23fb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\fftconvolver">
       <UniqueIdentifier>{8c932b4e-3b0f-42fe-81f7-ec58edbbe925}</UniqueIdentifier>
     </Filter>
@@ -49,75 +46,6 @@
     </ClInclude>
     <ClInclude Include="RandomLFO.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\biquad.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\biquad_modified.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\filter_includes.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\fo_apf.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\fo_hpf.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\fo_lpf.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\fo_shelving_high.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\fo_shelving_low.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\so_apf.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\so_bpf.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\so_bsf.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\so_butterworth_bpf.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\so_butterworth_bsf.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\so_butterworth_hpf.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\so_butterworth_lpf.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\so_hpf.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\so_linkwitz_riley_hpf.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\so_linkwitz_riley_lpf.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\so_lpf.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\so_parametric_cq_boost.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\so_parametric_cq_cut.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\so_parametric_ncq.h">
-      <Filter>Header Files\dspfilters</Filter>
-    </ClInclude>
-    <ClInclude Include="dspfilters\filter_common.h">
-      <Filter>Header Files\dspfilters</Filter>
     </ClInclude>
     <ClInclude Include="fftconvolver\AudioFFT.h">
       <Filter>Header Files\fftconvolver</Filter>

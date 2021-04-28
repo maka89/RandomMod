@@ -1,9 +1,12 @@
 #include "RandomLFO.h"
+
+
 #include "MaternKernelFunction.h"
 #include <ctime>
 
 RandomLFO::RandomLFO():distribution(0.0f, 1.0f),is_init(false) {
 }
+
 
 void RandomLFO::init(float sample_rate, float scale, float smoothness, unsigned int n_samples_per_scale, float n_scales) {
 	// Set variables

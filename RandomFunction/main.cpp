@@ -20,6 +20,7 @@ int main() {
 	
 	float scale = 1.0f;
 	float smoothness = 3.0f;
+	rlfo.seed(0);
 	rlfo.setScale(scale);
 	rlfo.setSmoothness(smoothness);
 
