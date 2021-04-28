@@ -7,7 +7,7 @@ using namespace std::chrono;
 
 
 using namespace std;
-int main() {
+void main_not() {
 
 
 	RandomLFO rlfo;
@@ -44,16 +44,7 @@ int main() {
 	for (int i = 0; i < 64 * 10000; i++)
 		plot << (float)i/sr << ";" << samples[i] << endl;
 	plot.close();
-	// To get the value of duration use the count()
-	// member function on the duration object
 	
-	
-	
-	
-	
-
-
-
 	delete samples;
 
 	cout << "DONE" << endl;

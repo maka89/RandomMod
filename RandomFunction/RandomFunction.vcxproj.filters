@@ -39,6 +39,9 @@
     <ClCompile Include="fftconvolver\Utilities.cpp">
       <Filter>Source Files\fftconvolver</Filter>
     </ClCompile>
+    <ClCompile Include="main2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MaternKernelFunction.h">
@@ -58,6 +61,9 @@
     </ClInclude>
     <ClInclude Include="fftconvolver\Utilities.h">
       <Filter>Header Files\fftconvolver</Filter>
+    </ClInclude>
+    <ClInclude Include="VAF.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
