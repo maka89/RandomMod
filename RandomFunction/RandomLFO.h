@@ -31,7 +31,7 @@ private:
 	double nextSampleTime;
 	double ds;
 
-	static const unsigned int n_samples_convolver = 128;
+	static const unsigned int n_samples_convolver = 256;
 	static const unsigned int block_size_convolver = 2048;
 	float conv_buf_in[n_samples_convolver];
 	float conv_buf_out[n_samples_convolver];

@@ -74,9 +74,6 @@ float RandomLFO::generateSamples(float *out, unsigned int N) {
 			this->current_time -= this->nextSampleTime;
 			this->nextSampleTime = this->ds*this->n_samples_convolver;
 
-			offset = this->n_samples_convolver - (unsigned int)(this->current_time / this->ds);
-			last_sample = this->output_buf[buflen - 2 - offset];
-			this_sample = this->output_buf[buflen - 1 - offset];
 		}
 
 		offset = this->n_samples_convolver - (unsigned int)(this->current_time / this->ds);
@@ -86,11 +83,13 @@ float RandomLFO::generateSamples(float *out, unsigned int N) {
 
 		//Linear interpolation between sample_points.
 		float intersample_time = (this->current_time / this->ds) - (unsigned int)(this->current_time / this->ds);
-		out[i] = (1.0- intersample_time)*last_sample + this_sample*intersample_time;
+
+
+		out[i] = last_sample + intersample_time*(this_sample - last_sample);
 
 	}
-	for (unsigned int i = 0; i < N; i++)
-		out[i] = this->output_smoother.process(out[i]);
+	/*for (unsigned int i = 0; i < N; i++)
+		out[i] = this->output_smoother.process(out[i]);*/
 	return ret;
 
 }
@@ -163,6 +162,10 @@ void RandomLFO::updateConvolver() {
 	this->convolver.reset();
 	this->convolver.init(this->block_size_convolver, &this->current_fir[0], this->current_fir.size());
 
+	this->output_smoother = SO_BUTTERWORTH_LPF();
+	this->output_smoother.calculate_coeffs(1000.0, this->sample_rate);
+
+
 	float *outbuf = new float[this->sample_rate];
 	
 	unsigned int N = this->scale*this->n_scales * 2;
@@ -171,8 +174,7 @@ void RandomLFO::updateConvolver() {
 		this->generateSamples(outbuf,(int)this->sample_rate);
 	delete outbuf;
 
-	this->output_smoother = SO_BUTTERWORTH_LPF();
-	this->output_smoother.calculate_coeffs(50.0, this->sample_rate);
+	
 }
 
 void RandomLFO::setScale(float scale) {

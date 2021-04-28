@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <chrono>
+#include <iomanip>    
 using namespace std::chrono;
 
 
@@ -19,14 +20,14 @@ int main() {
 
 	
 	float scale = 1.0f;
-	float smoothness = 3.0f;
+	float smoothness = 2.0f;
 	rlfo.seed(0);
 	rlfo.setScale(scale);
 	rlfo.setSmoothness(smoothness);
 
 
 	ofstream myfile,plot;
-	plot.open("plot.csv");
+	plot.open("plot_s2.csv");
 	plot << "t;value\n" << endl;
 
 	auto start = high_resolution_clock::now();
@@ -39,6 +40,7 @@ int main() {
 
 
 	cout << (sr*((double)duration.count()/1000000.0)/N) << endl;
+	plot << std::setprecision(9);
 	for (int i = 0; i < 64 * 10000; i++)
 		plot << (float)i/sr << ";" << samples[i] << endl;
 	plot.close();
