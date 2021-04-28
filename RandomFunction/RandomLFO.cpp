@@ -1,24 +1,8 @@
 #include "RandomLFO.h"
 #include "MaternKernelFunction.h"
+#include <ctime>
 
-//Debug
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <ctime> 
-//Debug
-
-void vec_out(vector<float> vec, string filename) {
-	ofstream myfile;
-	myfile.open(filename);
-	myfile << "value\n";
-	for (int i = 0; i < vec.size(); i++) {
-		myfile << vec[i] << endl;
-	}
-	myfile.close();
-
-}
-RandomLFO::RandomLFO():distribution(0.0f, 1.0f) {
+RandomLFO::RandomLFO():distribution(0.0f, 1.0f),is_init(false) {
 }
 
 void RandomLFO::init(float sample_rate, float scale, float smoothness, unsigned int n_samples_per_scale, float n_scales) {
@@ -57,15 +41,20 @@ void RandomLFO::init(float sample_rate, float scale, float smoothness, unsigned 
 
 	this->setScale(scale);
 	this->setSmoothness(smoothness);
-	this->generator.seed((unsigned int)time(NULL));
+	this->seed((unsigned int)time(NULL));
+	this->is_init = true;
 	
-	vec_out(this->current_fir, "fir.csv");
 
 
 }
 
+void RandomLFO::seed(unsigned int nmbr) {
+	this->generator.seed(nmbr);
+}
 float RandomLFO::generateSamples(float *out, unsigned int N) {
-
+	if (!this->is_init) 
+		return 0.0f;
+	
 	double dt = (1.0 / this->sample_rate)/this->scale;
 
 	size_t buflen = this->output_buf.size();
@@ -83,7 +72,6 @@ float RandomLFO::generateSamples(float *out, unsigned int N) {
 			this->nextSampleTime = this->ds*this->n_samples_convolver;
 
 			offset = this->n_samples_convolver - (unsigned int)(this->current_time / this->ds);
-			//cout << offset << endl;
 			last_sample = this->output_buf[buflen - 2 - offset];
 			this_sample = this->output_buf[buflen - 1 - offset];
 		}
@@ -98,6 +86,8 @@ float RandomLFO::generateSamples(float *out, unsigned int N) {
 		out[i] = (1.0- intersample_time)*last_sample + this_sample*intersample_time;
 
 	}
+	for (unsigned int i = 0; i < N; i++)
+		out[i] = this->output_smoother.process(out[i]);
 	return ret;
 
 }
@@ -175,9 +165,11 @@ void RandomLFO::updateConvolver() {
 	unsigned int N = this->scale*this->n_scales * 2;
 
 	for(unsigned int i = 0; i< N;i++)
-		this->generateSamples(outbuf,this->sample_rate);
+		this->generateSamples(outbuf,(int)this->sample_rate);
 	delete outbuf;
 
+	this->output_smoother = SO_BUTTERWORTH_LPF();
+	this->output_smoother.calculate_coeffs(50.0, this->sample_rate);
 }
 
 void RandomLFO::setScale(float scale) {

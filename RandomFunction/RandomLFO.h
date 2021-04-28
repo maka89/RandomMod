@@ -1,4 +1,5 @@
-#include "FFTConvolver.h"
+#include "fftconvolver/FFTConvolver.h"
+#include "dspfilters/so_butterworth_lpf.h"
 #include <boost/circular_buffer.hpp>
 #include <random>
 using namespace fftconvolver;
@@ -10,6 +11,7 @@ public:
 	void setSmoothness(float);
 	void init(float sample_rate,float scale, float smoothness = 3.0, unsigned int n_samples_per_scale = 100, float n_scales = 7);
 	float generateSamples(float *out, unsigned int N);
+	void seed(unsigned int);
 private:
 	void generateFIRs();
 	void calcFIR();
@@ -39,6 +41,9 @@ private:
 	normal_distribution<float> distribution;
 	boost::circular_buffer<float> rnd_buf;
 	boost::circular_buffer<float> output_buf;
+	SO_BUTTERWORTH_LPF output_smoother;
+
+	bool is_init;
 
 
 };

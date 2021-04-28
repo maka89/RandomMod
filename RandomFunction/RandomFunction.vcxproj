@@ -19,18 +19,43 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AudioFFT.cpp" />
-    <ClCompile Include="FFTConvolver.cpp" />
+    <ClCompile Include="fftconvolver\AudioFFT.cpp" />
+    <ClCompile Include="fftconvolver\FFTConvolver.cpp" />
+    <ClCompile Include="fftconvolver\TwoStageFFTConvolver.cpp" />
+    <ClCompile Include="fftconvolver\Utilities.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RandomLFO.cpp" />
-    <ClCompile Include="Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AudioFFT.h" />
-    <ClInclude Include="FFTConvolver.h" />
+    <ClInclude Include="dspfilters\biquad.h" />
+    <ClInclude Include="dspfilters\biquad_modified.h" />
+    <ClInclude Include="dspfilters\filter_common.h" />
+    <ClInclude Include="dspfilters\filter_includes.h" />
+    <ClInclude Include="dspfilters\fo_apf.h" />
+    <ClInclude Include="dspfilters\fo_hpf.h" />
+    <ClInclude Include="dspfilters\fo_lpf.h" />
+    <ClInclude Include="dspfilters\fo_shelving_high.h" />
+    <ClInclude Include="dspfilters\fo_shelving_low.h" />
+    <ClInclude Include="dspfilters\so_apf.h" />
+    <ClInclude Include="dspfilters\so_bpf.h" />
+    <ClInclude Include="dspfilters\so_bsf.h" />
+    <ClInclude Include="dspfilters\so_butterworth_bpf.h" />
+    <ClInclude Include="dspfilters\so_butterworth_bsf.h" />
+    <ClInclude Include="dspfilters\so_butterworth_hpf.h" />
+    <ClInclude Include="dspfilters\so_butterworth_lpf.h" />
+    <ClInclude Include="dspfilters\so_hpf.h" />
+    <ClInclude Include="dspfilters\so_linkwitz_riley_hpf.h" />
+    <ClInclude Include="dspfilters\so_linkwitz_riley_lpf.h" />
+    <ClInclude Include="dspfilters\so_lpf.h" />
+    <ClInclude Include="dspfilters\so_parametric_cq_boost.h" />
+    <ClInclude Include="dspfilters\so_parametric_cq_cut.h" />
+    <ClInclude Include="dspfilters\so_parametric_ncq.h" />
+    <ClInclude Include="fftconvolver\AudioFFT.h" />
+    <ClInclude Include="fftconvolver\FFTConvolver.h" />
+    <ClInclude Include="fftconvolver\TwoStageFFTConvolver.h" />
+    <ClInclude Include="fftconvolver\Utilities.h" />
     <ClInclude Include="MaternKernelFunction.h" />
     <ClInclude Include="RandomLFO.h" />
-    <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
