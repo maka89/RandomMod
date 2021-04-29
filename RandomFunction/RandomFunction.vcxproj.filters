@@ -62,8 +62,5 @@
     <ClInclude Include="fftconvolver\Utilities.h">
       <Filter>Header Files\fftconvolver</Filter>
     </ClInclude>
-    <ClInclude Include="VAF.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

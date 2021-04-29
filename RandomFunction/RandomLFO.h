@@ -8,11 +8,30 @@ using namespace fftconvolver;
 class RandomLFO {
 public:
 	RandomLFO();
-	void setScale(float);
-	void setSmoothness(float);
+
+	// scale - Characteristic time-scale of the function.
+	void setScale(float scale);
+
+	// Smoothness - Smoothness of the function. Corresponds to v-parameter of the Matern Covariance kernel. For smoothness = 0,1,2 : v=smoothness+0.5. For higher smoothness, v=inf(gaussian covariance function).
+	void setSmoothness(float smoothness);
+
+	//
+	// sample_rate - sample rate of audio. generateSamples will generate lfo-samples at the same rate.
+	// scale - Characteristic time-scale of the Gaussian Function.
+	// Smoothness - Smoothness of the function.
+	// n_scale - Number of lengthscales(scale) to be included in the FIR. 
+	// n_samples_per_scale - Number of samples per lengthscale in the FIR.
 	void init(float sample_rate,float scale, float smoothness = 3.0, unsigned int n_samples_per_scale = 100, float n_scales = 7);
+
+	//
+	// out - buffer of size N to be filled
+	// N - Number of samples to fill in "out".
+	// output - Can set output = false if you want to progress the state of the RandomLFO without getting any samples.
 	float generateSamples(float *out, unsigned int N,bool output=true);
-	void seed(unsigned int);
+
+	//
+	// seed - Set seed of random number generator.
+	void seed(unsigned int seed);
 
 
 protected:
@@ -58,27 +77,17 @@ private:
 
 class RandomLFOSingle : public RandomLFO {
 public:
-	RandomLFOSingle() :RandomLFO(), time(0.0), out_dt(1.0/1000.0) {}
-	void setOutFreq(float freq) { this->out_dt = 1.0/freq; }
-	bool processSingle(float *out) {
+	RandomLFOSingle();
 
+	// Set output frequency of the RandomLFO.
+	void setOutFreq(float freq);
 
-		bool retval = false;
-		if (this->time >= out_dt) {
-			this->generateSamples(out, 1, true);
-			this->time = 0.0;
-			retval = true;
-		}
-		else 
-			this->generateSamples(NULL, 1, false);
-		
-		time += (1.0 / this->sample_rate) / this->scale ;
-		return retval;
-
-		
-	}
+	// Feed this function with samples of sample_frequency( See RandomLFO.init(...) ).
+	// Will return True and overwrite "out" at the frequency specified in setOutFreq. Else returns False.
+	bool processSingle(float *out);
 
 private:
 	double time;
 	double out_dt;
 };
+

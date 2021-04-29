@@ -34,7 +34,6 @@
     <ClInclude Include="fftconvolver\Utilities.h" />
     <ClInclude Include="MaternKernelFunction.h" />
     <ClInclude Include="RandomLFO.h" />
-    <ClInclude Include="VAF.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

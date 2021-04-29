@@ -183,3 +183,24 @@ void RandomLFO::setSmoothness(float smoothness) {
 	this->calcFIR();
 	this->updateConvolver();
 }
+
+
+RandomLFOSingle::RandomLFOSingle():RandomLFO(), time(0.0), out_dt(1.0/1000.0) {}
+void RandomLFOSingle::setOutFreq(float freq) { this->out_dt = 1.0/freq; }
+bool RandomLFOSingle::processSingle(float *out) {
+
+
+		bool retval = false;
+		if (this->time >= out_dt) {
+			this->generateSamples(out, 1, true);
+			this->time = 0.0;
+			retval = true;
+		}
+		else 
+			this->generateSamples(NULL, 1, false);
+		
+		time += (1.0 / this->sample_rate) / this->scale ;
+		return retval;
+
+		
+	}
